@@ -1,13 +1,17 @@
-package com.libreria.libros;
+package com.libreria;
 
+import com.libreria.repositorio.LibrosRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Scanner;
-
 @SpringBootApplication
 public class LibrosApplication  implements CommandLineRunner {
+
+	@Autowired
+	private LibrosRepositorio librosRepositorio;
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(LibrosApplication.class, args);
@@ -15,7 +19,10 @@ public class LibrosApplication  implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Menu menu = new Menu();
+		//inicializo el repositorio
+		Menu menu = new Menu(librosRepositorio);
+
+		//lamo la funcion menu
 		menu.menu();
 	}
 }

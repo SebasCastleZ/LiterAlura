@@ -1,4 +1,4 @@
-package com.libreria.libros.conexiones;
+package com.libreria.conexiones;
 
 import java.io.IOException;
 import java.net.URI;
